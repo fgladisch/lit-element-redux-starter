@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import { Action, Store, Unsubscribe } from "redux";
 
 type Constructor<T> = new (...args: any[]) => T;
@@ -37,10 +35,7 @@ export const connect = <S, A extends Action>(store: Store<S, A>) => <
       }
     }
 
-    /**
-     * The `stateChanged(state)` method will be called when the state is updated.
-     */
-    stateChanged(state: S) {
+    stateChanged(_: S) {
       // empty
     }
   };
