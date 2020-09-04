@@ -34,11 +34,11 @@ export class MyElement extends ConnectedElement {
   }
 
   private increment() {
-    incrementCounter(Number(this.value));
+    incrementCounter(this.value);
   }
 
   private decrement() {
-    decrementCounter(Number(this.value));
+    decrementCounter(this.value);
   }
 
   private handleInput(event: InputEvent) {
