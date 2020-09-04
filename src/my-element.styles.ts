@@ -1,15 +1,23 @@
 import { css } from "lit-element";
 
 export default css`
+  * {
+    box-sizing: border-box;
+  }
+
   :host {
     --border-radius: 8px;
     --border: 1px solid #ddd;
 
     font-family: sans-serif;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
     border: var(--border);
     border-radius: var(--border-radius);
+    width: 400px;
   }
 
   input,
@@ -18,10 +26,22 @@ export default css`
     border: var(--border);
     border-radius: var(--border-radius);
     outline: none;
+    margin: 5px;
+  }
+
+  button {
+    background: white;
+    cursor: pointer;
   }
 
   input {
-    width: 40px;
+    width: 80px;
+  }
+
+  .button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .counter {
@@ -34,12 +54,13 @@ export default css`
   .log {
     font-family: monospace;
     background: #f6f6f6;
-    margin: 10px 0;
+    margin-top: 10px;
     padding: 10px;
     border: var(--border);
     border-radius: var(--border-radius);
     height: 200px;
     overflow-y: auto;
+    width: 100%;
   }
 
   .log-entry {

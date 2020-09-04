@@ -17,7 +17,7 @@ export class MyElement extends ConnectedElement {
   static styles = styles;
 
   @internalProperty() counter = 0;
-  @internalProperty() value = "1";
+  @internalProperty() value = 1;
   @internalProperty() log: string[] = [];
 
   public updated(props: PropertyValues<MyElement>) {
@@ -33,24 +33,30 @@ export class MyElement extends ConnectedElement {
     this.counter = state.value;
   }
 
-  private add() {
+  private increment() {
     incrementCounter(Number(this.value));
   }
 
-  private substract() {
+  private decrement() {
     decrementCounter(Number(this.value));
   }
 
   private handleInput(event: InputEvent) {
-    this.value = (event.target as HTMLInputElement).value;
+    this.value = Number((event.target as HTMLInputElement).value);
   }
 
   public render() {
     return html`
       <p class="counter">${this.counter}</p>
-      <input .value=${this.value} @input=${this.handleInput} type="number" />
-      <button @click=${this.add}>Add</button>
-      <button @click=${this.substract}>Substract</button>
+      <div class="button-container">
+        <input
+          .value=${String(this.value)}
+          @input=${this.handleInput}
+          type="number"
+        />
+        <button @click=${this.increment}>Increment</button>
+        <button @click=${this.decrement}>Decrement</button>
+      </div>
       <div class="log">
         ${this.log
           .reverse()
