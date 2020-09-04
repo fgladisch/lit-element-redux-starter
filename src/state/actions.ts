@@ -1,8 +1,8 @@
 import { Action } from "redux";
 
 export enum CounterActionType {
-  INCREMENT = "counter:add",
-  DECREMENT = "counter:substract",
+  INCREMENT = "counter:increment",
+  DECREMENT = "counter:decrement",
 }
 
 export interface IncrementAction extends Action<CounterActionType.INCREMENT> {
